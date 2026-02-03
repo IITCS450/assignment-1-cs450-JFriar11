@@ -156,11 +156,12 @@ int main(int c, char **v) {
   if (ticks > 0) cpu_sec = (double)(utime_ticks + stime_ticks) / (double)ticks;
 
   // Output (adjust labels if tests expect different)
+  printf("PID:%ld\n", pid);
   printf("State: %c\n", state);
   printf("PPid: %ld\n", ppid);
-  printf("Cmdline: %s\n", have_cmd && cmd[0] ? cmd : "[unknown]");
-  printf("CPU: %.6f\n", cpu_sec);
-  if (have_rss) printf("VmRSS: %ld kB\n", vmrss_kb);
+  printf("Cmd: %s\n", have_cmd && cmd[0] ? cmd : "[unknown]");
+  printf("CPU:%lld %.3f\n", utime_ticks + stime_ticks, cpu_sec);
+  if (have_rss) printf("VmRSS: %ld\n", vmrss_kb);
   else printf("VmRSS: N/A\n");
 
   return 0;

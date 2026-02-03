@@ -53,7 +53,7 @@ int main(int c,char**v){
     printf("status=%d ", status);
   }
 
-  printf("time=%.6f\n", elapsed);
+  printf("elapsed=%.6f\n", elapsed);
   return 0;
 }
 
